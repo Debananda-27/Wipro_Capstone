@@ -8,7 +8,7 @@
 #define BUF_LEN 80
 
 static int major_num;
-static int motor_state = 0; // 0 = Normal, 1 = Overheat, 2 = Belt Jam
+static int motor_state = 0; 
 static char msg[BUF_LEN];
 
 static int dev_open(struct inode *inodep, struct file *filep) { return 0; }
