@@ -36,64 +36,13 @@ Conveyor Motor Simulation
 Linux Kernel Driver
 (conveyor_driver.c)
           |
-          | RPM
-          | Temperature
-          | Motor State
+          |-- RPM
+          |-- Temperature
+          |-- Motor State
+          |
           v
 C++ Dashboard
 (dashboard.cpp)
-Motor States
-State	Condition	RPM	Temperature
-0	Normal Operation	1400–1499	60–74°C
-1	Overheating	1450–1499	95–114°C
-2	Motor Stopped / Fault	0–9	80–89°C
-Project Components
-conveyor_driver.c
-
-Linux kernel character-device driver responsible for generating and providing motor telemetry.
-
-dashboard.cpp
-
-C++ application responsible for reading and displaying the motor telemetry.
-
-Makefile
-
-Used to build the project.
-
-setup.sh
-
-Used for project setup and execution.
-
-Working
-The Linux kernel driver is loaded.
-The driver registers the conveyor_motor character device.
-The driver generates RPM and temperature values according to the selected motor state.
-The C++ dashboard reads the telemetry from the driver.
-The dashboard displays the motor information.
-The motor state can be changed to simulate different fault conditions.
-Fault Simulation
-
-The motor state can be changed using the following values:
-
-0 → Normal Operation
-1 → Overheating
-2 → Motor Stopped / Fault
-Build and Run
-make
-./setup.sh
-Expected Output
-
-The dashboard displays:
-
-RPM
-Temperature
-Motor State
-
-The displayed values change according to the selected motor state.
-
-Conclusion
-
-The Industrial Conveyor Motor Monitor demonstrates the use of a Linux kernel character-device driver to simulate industrial motor telemetry and a C++ application to monitor the motor's operating condition and simulate different fault states.
           |
           v
 Terminal
